@@ -1,0 +1,5 @@
+list = input("Ingresa tus paises Separados por ; : ")
+list = list.split(',')
+list.sort()
+list = (set(list))
+print (list)
