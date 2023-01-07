@@ -5,7 +5,7 @@ try:
     conexion.execute("""create table Estudiantes (
                               id integer primary key autoincrement,
                               alumno text,
-                              Edad integer
+                              Apellido text
                         )""")
     print("se creo la tabla Alumnos")                        
 except sqlite3.OperationalError:
@@ -13,19 +13,19 @@ except sqlite3.OperationalError:
 
 
 # Ingreso los alumnos
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Jose", 17))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Daniel", 21))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Felipe", 30))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Juan", 24))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Yeison", 56))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Pedro", 24))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Luis", 22))
-conexion.execute("insert into Estudiantes(alumno,Edad) values (?,?)", ("Andres", 19))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Jose", "Cogollo"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Daniel", "Medrano"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Felipe", "Arteaga"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Juan", "Barreras"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Yeison", "Montes"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Pedro", "Casilla"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Luis", "Ochoa"))
+conexion.execute("insert into Estudiantes(alumno,Apellido) values (?,?)", ("Andres", "Castillo"))
 conexion.commit()
 
 cursor = conexion.cursor()
 
-rows = cursor.execute('SELECT * FROM Estudiantes WHERE alumno="Luis"')
+rows = cursor.execute('SELECT * FROM Estudiantes WHERE alumno="Andres"')
 for row in rows:
     print (row)
 
