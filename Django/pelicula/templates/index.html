@@ -10,7 +10,7 @@
 
 <body>
 <header>
-    <h1>{% block header-title %}Directores{% endblock %}</h1>
+    <h1 class="titulo">{% block header-title %}Directores{% endblock %}</h1>
 </header>
 <main>
   {% block content %}
@@ -19,16 +19,23 @@
 
   
   <div class="card cardtemplates" style="width: 18rem;">
-    <img class="card-img-top" src="{{director.foto}}" alt="Card image cap">
+    <img class="card-img-top imgcard" src="{{director.foto}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{director.nombre }} {{director.apellidos}}</h5>
       <p class="card-text">{{director.biografia}}</p>
-      
+  </div>
+  </div>
+  
+  {% endfor %}
+  {% for pelicula in Peliculas %}
+  <div class="card cardtemplates" style="width: 18rem;">
+    <img class="card-img-top imgcard" src="{{pelicula.caratula}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{pelicula.nombre}}</h5>
+      <p class="card-text">{{pelicula.trama}}</p>
     </div>
   </div>
-
-  {% endfor %}
-</div>
+{% endfor %}
 
   {% endblock %}</main>
 </body>
